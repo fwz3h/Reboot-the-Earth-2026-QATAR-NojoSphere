@@ -1,0 +1,133 @@
+{
+  "_readme": "crop info, typed in by hand (see the guide's folder layout). This is a browser-side copy of the tables in backend/engine.py, used ONLY when the Flask backend is unreachable: app.js ranks the options in the browser from these numbers plus an offline pack's climate data. Keep the two files in sync -- every number here is the same PLACEHOLDER value as in engine.py, and must be replaced with sourced data (FAO, extension services) before real use.",
+  "prices": {
+    "energy_usd_per_kwh": 0.12,
+    "water_usd_per_m3": 0.05,
+    "marketing_rate": 0.12,
+    "maintenance_rate": 0.06,
+    "m3_per_ha_per_mm": 10.0
+  },
+  "crops": {
+    "tomato": {
+      "name": "Tomato",
+      "names": { "ar": "الطماطم", "fr": "Tomate", "es": "Tomate", "sw": "Nyanya", "hi": "टमाटर", "ur": "ٹماٹر" },
+      "temp_range": [18.0, 27.0],
+      "rain_range": [400.0, 1200.0],
+      "ph_range": [6.0, 6.8],
+      "base_yield": 55.0,
+      "water_need": 6000.0,
+      "energy_need": 900.0,
+      "price": 700.0,
+      "seed_cost": 1500.0,
+      "labour_cost": 6000.0,
+      "base_capex": 8000.0,
+      "system_fit": { "open_field": 0.95, "greenhouse": 1.0, "hydroponic": 0.95, "vertical": 0.8 }
+    },
+    "lettuce": {
+      "name": "Lettuce",
+      "names": { "ar": "الخس", "fr": "Laitue", "es": "Lechuga", "sw": "Saladi", "hi": "सलाद पत्ता", "ur": "سلاد پتہ" },
+      "temp_range": [12.0, 22.0],
+      "rain_range": [300.0, 900.0],
+      "ph_range": [6.0, 7.0],
+      "base_yield": 25.0,
+      "water_need": 3500.0,
+      "energy_need": 600.0,
+      "price": 1500.0,
+      "seed_cost": 800.0,
+      "labour_cost": 2600.0,
+      "base_capex": 5000.0,
+      "system_fit": { "open_field": 0.8, "greenhouse": 1.0, "hydroponic": 1.0, "vertical": 1.0 }
+    },
+    "cucumber": {
+      "name": "Cucumber",
+      "names": { "ar": "الخيار", "fr": "Concombre", "es": "Pepino", "sw": "Tango", "hi": "खीरा", "ur": "کھیرا" },
+      "temp_range": [20.0, 30.0],
+      "rain_range": [400.0, 1100.0],
+      "ph_range": [6.0, 7.0],
+      "base_yield": 45.0,
+      "water_need": 5200.0,
+      "energy_need": 850.0,
+      "price": 600.0,
+      "seed_cost": 1100.0,
+      "labour_cost": 3000.0,
+      "base_capex": 7000.0,
+      "system_fit": { "open_field": 0.9, "greenhouse": 1.0, "hydroponic": 0.9, "vertical": 0.75 }
+    },
+    "wheat": {
+      "name": "Wheat",
+      "names": { "ar": "القمح", "fr": "Blé", "es": "Trigo", "sw": "Ngano", "hi": "गेहूँ", "ur": "گندم" },
+      "temp_range": [10.0, 24.0],
+      "rain_range": [300.0, 800.0],
+      "ph_range": [6.0, 7.5],
+      "base_yield": 4.5,
+      "water_need": 3500.0,
+      "energy_need": 700.0,
+      "price": 320.0,
+      "seed_cost": 200.0,
+      "labour_cost": 600.0,
+      "base_capex": 1200.0,
+      "system_fit": { "open_field": 1.0, "greenhouse": 0.6, "hydroponic": 0.5, "vertical": 0.45 }
+    },
+    "strawberry": {
+      "name": "Strawberry",
+      "names": { "ar": "الفراولة", "fr": "Fraise", "es": "Fresa", "sw": "Stroberi", "hi": "स्ट्रॉबेरी", "ur": "اسٹرابیری" },
+      "temp_range": [10.0, 24.0],
+      "rain_range": [400.0, 1000.0],
+      "ph_range": [5.5, 6.5],
+      "base_yield": 18.0,
+      "water_need": 4000.0,
+      "energy_need": 700.0,
+      "price": 2200.0,
+      "seed_cost": 3000.0,
+      "labour_cost": 5000.0,
+      "base_capex": 9000.0,
+      "system_fit": { "open_field": 0.85, "greenhouse": 1.0, "hydroponic": 0.9, "vertical": 0.85 }
+    }
+  },
+  "systems": {
+    "open_field": {
+      "label": "Open Field",
+      "names": { "ar": "زراعة مكشوفة", "fr": "Plein champ", "es": "Campo abierto", "sw": "Shamba la wazi", "hi": "खुला खेत", "ur": "کھلا کھیت" },
+      "yield_mult": 1.0,
+      "water_mult": 1.0,
+      "energy_mult": 1.0,
+      "capex_per_ha": 2000.0,
+      "labour_mult": 1.0,
+      "climate_control": 0.0,
+      "control_quality": 0.0
+    },
+    "greenhouse": {
+      "label": "Greenhouse",
+      "names": { "ar": "بيت محمي (دفيئة)", "fr": "Serre", "es": "Invernadero", "sw": "Nyumba ya kijani", "hi": "ग्रीनहाउस", "ur": "گرین ہاؤس" },
+      "yield_mult": 4.0,
+      "water_mult": 0.45,
+      "energy_mult": 3.5,
+      "capex_per_ha": 120000.0,
+      "labour_mult": 1.6,
+      "climate_control": 0.75,
+      "control_quality": 0.85
+    },
+    "hydroponic": {
+      "label": "Hydroponic",
+      "names": { "ar": "زراعة مائية (هيدروبونيك)", "fr": "Hydroponie", "es": "Hidroponía", "sw": "Kilimo cha maji", "hi": "हाइड्रोपोनिक", "ur": "ہائیڈروپونک" },
+      "yield_mult": 6.0,
+      "water_mult": 0.12,
+      "energy_mult": 8.0,
+      "capex_per_ha": 250000.0,
+      "labour_mult": 2.0,
+      "climate_control": 0.9,
+      "control_quality": 0.9
+    },
+    "vertical": {
+      "label": "Vertical Farm",
+      "names": { "ar": "زراعة رأسية", "fr": "Ferme verticale", "es": "Granja vertical", "sw": "Shamba la wima", "hi": "वर्टिकल फ़ार्म", "ur": "عمودی فارم" },
+      "yield_mult": 22.0,
+      "water_mult": 0.06,
+      "energy_mult": 28.0,
+      "capex_per_ha": 900000.0,
+      "labour_mult": 2.6,
+      "climate_control": 1.0,
+      "control_quality": 0.9
+    }
+  }
+}

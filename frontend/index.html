@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- This meta tag is what makes the page look right on a phone. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mazraa &mdash; Crop &amp; Farming System Advisor</title>
+
+  <!-- Leaflet is loaded from the public unpkg CDN: no build tools, no install. -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <h1>Mazraa <span class="arabic">&nbsp;مزرعة</span></h1>
+        <p class="tagline" data-i18n="app.tagline"></p>
+      </div>
+
+      <div class="header-tools">
+        <!-- Language picker. i18n.js fills the list of options from SUPPORTED. -->
+        <div class="language-picker">
+          <label for="language-select" data-i18n="lang.label"></label>
+          <select id="language-select" data-i18n-aria-label="lang.label"></select>
+        </div>
+        <!-- Filled in by app.js so you can see at a glance whether the backend is up. -->
+        <div id="backend-status" class="status-pill status-unknown" data-i18n="status.checking"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ================= 1. THE MAP ================= -->
+    <section class="card-section">
+      <h2>
+        <span class="step">1</span>
+        <span data-i18n="section1.title"></span>
+      </h2>
+      <p class="hint" data-i18n="section1.hint"></p>
+      <div id="map"></div>
+      <p id="location-readout" class="location-readout" data-i18n="location.none"></p>
+    </section>
+
+    <!-- ================= 2. THE FORM ================= -->
+    <section class="card-section">
+      <h2>
+        <span class="step">2</span>
+        <span data-i18n="section2.title"></span>
+      </h2>
+
+      <form id="recommend-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="area" data-i18n="form.area.label"></label>
+            <input type="number" id="area" name="area" min="0.01" step="0.01"
+                   value="2" required />
+            <small data-i18n="form.area.hint"></small>
+          </div>
+
+          <div class="field">
+            <label for="budget" data-i18n="form.budget.label"></label>
+            <input type="number" id="budget" name="budget" min="0" step="1000"
+                   value="150000" />
+            <small data-i18n="form.budget.hint"></small>
+          </div>
+
+          <div class="field field-button">
+            <button type="submit" id="submit-button" data-i18n="form.submit"></button>
+          </div>
+        </div>
+
+        <!-- Hidden by default; shown by app.js if something goes wrong. -->
+        <p id="form-message" class="form-message" hidden></p>
+      </form>
+    </section>
+
+    <!-- ================= 3. THE RESULTS ================= -->
+    <section class="card-section" id="results-section" hidden>
+      <h2>
+        <span class="step">3</span>
+        <span data-i18n="section3.title"></span>
+      </h2>
+
+      <!-- A summary of the climate and soil used for this location. -->
+      <div id="site-summary" class="site-summary"></div>
+
+      <div class="results-toolbar">
+        <p id="results-count" class="results-count"></p>
+        <button type="button" id="toggle-all" class="ghost-button" hidden></button>
+      </div>
+
+      <div id="results" class="results-grid"></div>
+    </section>
+
+    <!-- Shown while waiting for the backend (which may be calling NASA, etc.). -->
+    <section id="loading" class="loading" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="loading-text" data-i18n="loading.lookup"></p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p data-i18n="footer.disclaimer"></p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- i18n.js must come before app.js: it holds the translations app.js uses. -->
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
