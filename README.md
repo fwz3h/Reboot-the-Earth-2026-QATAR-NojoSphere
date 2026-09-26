@@ -1,1 +1,1 @@
-# Reboot-the-Earth-2026-QATAR-Mazraa
+# Reboot-the-Earth-2026-QATAR-NojoSphere
