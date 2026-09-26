@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Leafy crop illustration">
+  <defs>
+    <linearGradient id="lg-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef9f1"/><stop offset="1" stop-color="#d2ecdc"/>
+    </linearGradient>
+    <linearGradient id="lg-body" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#6fd592"/><stop offset="1" stop-color="#18915a"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#lg-bg)"/>
+  <path d="M100 30c36 14 56 44 56 76 0 34-26 56-56 66-30-10-56-32-56-66 0-32 20-62 56-76Z" fill="url(#lg-body)"/>
+  <path d="M100 38v126" stroke="#0d6b41" stroke-width="3.2" stroke-linecap="round" opacity=".5"/>
+  <g stroke="#0d6b41" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".38">
+    <path d="M100 64 76 80M100 64l24 16M100 92 72 110M100 92l28 18M100 120l-24 20M100 120l24 20"/>
+  </g>
+</svg>

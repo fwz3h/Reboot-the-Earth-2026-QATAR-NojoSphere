@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Night-time illustration of crop rows receding toward a glowing horizon above a live sensor">
+  <defs>
+    <linearGradient id="se-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#040c08"/>
+      <stop offset="45%" stop-color="#0a1b11"/>
+      <stop offset="100%" stop-color="#16321f"/>
+    </linearGradient>
+    <radialGradient id="se-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d6f0a8" stop-opacity="0.95"/>
+      <stop offset="38%" stop-color="#b5dd7b" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#b5dd7b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="se-hill-back" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b3a26"/>
+      <stop offset="100%" stop-color="#0d2116"/>
+    </linearGradient>
+    <linearGradient id="se-hill-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#132c1c"/>
+      <stop offset="100%" stop-color="#081510"/>
+    </linearGradient>
+    <linearGradient id="se-field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c1f14"/>
+      <stop offset="100%" stop-color="#050c08"/>
+    </linearGradient>
+    <linearGradient id="se-haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b5dd7b" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#b5dd7b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="se-row" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fbf62" stop-opacity="0.05"/>
+      <stop offset="55%" stop-color="#9ed06b" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#c6ea93" stop-opacity="0.6"/>
+    </linearGradient>
+    <radialGradient id="se-vignette" cx="50%" cy="46%" r="72%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.62"/>
+    </radialGradient>
+    <filter id="se-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#se-sky)"/>
+
+  <g fill="#dcefbc">
+    <circle cx="180" cy="120" r="2.2" opacity="0.5"/>
+    <circle cx="352" cy="72" r="1.6" opacity="0.35"/>
+    <circle cx="520" cy="150" r="1.9" opacity="0.42"/>
+    <circle cx="700" cy="60" r="1.5" opacity="0.3"/>
+    <circle cx="905" cy="118" r="2.1" opacity="0.46"/>
+    <circle cx="1090" cy="64" r="1.7" opacity="0.34"/>
+    <circle cx="1260" cy="146" r="2.3" opacity="0.5"/>
+    <circle cx="1442" cy="96" r="1.6" opacity="0.32"/>
+    <circle cx="1348" cy="212" r="1.8" opacity="0.38"/>
+    <circle cx="268" cy="238" r="1.8" opacity="0.36"/>
+    <circle cx="612" cy="252" r="1.5" opacity="0.28"/>
+    <circle cx="998" cy="236" r="1.9" opacity="0.4"/>
+    <circle cx="1160" cy="300" r="1.5" opacity="0.26"/>
+    <circle cx="448" cy="330" r="1.7" opacity="0.3"/>
+  </g>
+
+  <ellipse cx="1140" cy="330" rx="430" ry="300" fill="url(#se-glow)" filter="url(#se-soft)"/>
+  <circle cx="1140" cy="322" r="72" fill="#e8f7c6" opacity="0.9"/>
+
+  <path d="M0 470 Q 300 372 640 448 T 1280 424 Q 1450 410 1600 438 L1600 900 L0 900 Z" fill="url(#se-hill-back)"/>
+  <rect x="0" y="424" width="1600" height="70" fill="url(#se-haze)" opacity="0.7"/>
+  <path d="M0 512 Q 360 440 760 512 T 1600 496 L1600 900 L0 900 Z" fill="url(#se-hill-mid)"/>
+  <path d="M0 560 Q 420 520 860 566 T 1600 552 L1600 900 L0 900 Z" fill="url(#se-field)"/>
+
+  <g stroke="url(#se-row)" stroke-width="2.4" stroke-linecap="round">
+    <line x1="800" y1="548" x2="-360" y2="900"/>
+    <line x1="800" y1="548" x2="-240" y2="900"/>
+    <line x1="800" y1="548" x2="-120" y2="900"/>
+    <line x1="800" y1="548" x2="0" y2="900"/>
+    <line x1="800" y1="548" x2="120" y2="900"/>
+    <line x1="800" y1="548" x2="240" y2="900"/>
+    <line x1="800" y1="548" x2="360" y2="900"/>
+    <line x1="800" y1="548" x2="480" y2="900"/>
+    <line x1="800" y1="548" x2="600" y2="900"/>
+    <line x1="800" y1="548" x2="720" y2="900"/>
+    <line x1="800" y1="548" x2="880" y2="900"/>
+    <line x1="800" y1="548" x2="1000" y2="900"/>
+    <line x1="800" y1="548" x2="1120" y2="900"/>
+    <line x1="800" y1="548" x2="1240" y2="900"/>
+    <line x1="800" y1="548" x2="1360" y2="900"/>
+    <line x1="800" y1="548" x2="1480" y2="900"/>
+    <line x1="800" y1="548" x2="1600" y2="900"/>
+    <line x1="800" y1="548" x2="1720" y2="900"/>
+    <line x1="800" y1="548" x2="1840" y2="900"/>
+    <line x1="800" y1="548" x2="1960" y2="900"/>
+  </g>
+
+  <g stroke="#b5dd7b" stroke-opacity="0.1" fill="none" stroke-width="2">
+    <path d="M-60 640 Q 800 588 1660 640"/>
+    <path d="M-120 716 Q 800 654 1720 716"/>
+    <path d="M-200 800 Q 800 726 1800 800"/>
+    <path d="M-280 890 Q 800 806 1880 890"/>
+  </g>
+
+  <g>
+    <circle cx="800" cy="548" r="96" fill="none" stroke="#b5dd7b" stroke-opacity="0.16" stroke-width="1.6"/>
+    <circle cx="800" cy="548" r="54" fill="none" stroke="#b5dd7b" stroke-opacity="0.26" stroke-width="1.6"/>
+    <circle cx="800" cy="548" r="7" fill="#d9f2ac"/>
+    <circle cx="800" cy="548" r="20" fill="#b5dd7b" opacity="0.22"/>
+  </g>
+
+  <rect width="1600" height="900" fill="url(#se-vignette)"/>
+</svg>

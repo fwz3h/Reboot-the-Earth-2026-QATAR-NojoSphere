@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06100b">
+  <meta name="description" content="AgriSense AI smart agriculture monitoring dashboard">
+  <title>AgriSense AI — Field intelligence</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ParticleText.css">
+  <link rel="stylesheet" href="ScrollExpand.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" aria-label="AgriSense AI home">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V13m0 8c-7 0-11-4-11-11 7 0 11 4 11 11Zm0-5c0-6 4-10 11-10 0 7-4 11-11 11"/><path d="M9 26h14"/></svg></span>
+        <span class="brand-copy"><strong>AgriSense<span> AI</span></strong><small>FIELD INTELLIGENCE</small></span>
+      </a>
+      <button type="button" class="workspace" id="workspace-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="action-dialog"><span class="workspace-icon">N</span><span><b>North Field</b><small>Farm workspace</small></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="nav-list">
+        <a class="nav-link active" href="#overview"><span class="nav-icon">◫</span><span>Overview</span><i></i></a>
+        <a class="nav-link" href="#crop-library"><span class="nav-icon">❋</span><span>Crop library</span></a>
+        <a class="nav-link" href="?view=map#map-view" target="_blank" rel="noopener" aria-label="Open GPS map in a new tab" data-map-link><span class="nav-icon">⌖</span><span>GPS map</span></a>
+        <a class="nav-link" href="#suitability"><span class="nav-icon">✳</span><span>Site suitability</span></a>
+        <a class="nav-link" href="#monitoring"><span class="nav-icon">⌁</span><span>Field monitoring</span></a>
+        <a class="nav-link" href="#devices"><span class="nav-icon">▦</span><span>Devices</span><span class="nav-count" id="device-count">—</span></a>
+        <a class="nav-link" href="#insights"><span class="nav-icon">✳</span><span>AI insights</span></a>
+    <a class="nav-link" href="#ai-advisor"><span class="nav-icon">✦</span><span>AI advisor</span></a>
+        <a class="nav-link" href="#alerts"><span class="nav-icon">♧</span><span>Alerts</span><span class="nav-count alert-count" id="alert-count">0</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-orbit">✳</div><b>Growing smarter,<br>one reading at a time.</b><span>Connected field intelligence for healthier crops.</span><a href="#insights">Explore insights <span>↗</span></a></div>
+        <div class="profile"><div class="avatar">AS</div><div><b>Field operator</b><small>AgriSense workspace</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div class="topbar-row">
+          <div class="topbar-brand">
+            <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V13m0 8c-7 0-11-4-11-11 7 0 11 4 11 11Zm0-5c0-6 4-10 11-10 0 7-4 11-11 11"/><path d="M9 26h14"/></svg></span>
+            <span class="brand-name">AgriSense<span> AI</span></span>
+          </div>
+          <nav class="topnav" aria-label="Primary">
+            <a class="topnav-link active" href="#overview">Overview</a>
+            <a class="topnav-link" href="#crop-library">Crop library</a>
+            <a class="topnav-link" href="?view=map#map-view" target="_blank" rel="noopener" aria-label="Open GPS map in a new tab" data-map-link>Field map</a>
+            <a class="topnav-link" href="#suitability">Suitability</a>
+    <a class="topnav-link" href="#ai-advisor">AI advisor</a>
+            <a class="topnav-link" href="#devices">Devices</a>
+            <a class="topnav-link" href="#alerts">Alerts</a>
+          </nav>
+          <div class="top-actions"><button type="button" class="icon-button notification-button" id="notifications-button" aria-label="View alerts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i id="notification-dot"></i></button><div class="top-profile"><span class="avatar">AS</span><span class="top-profile-copy"><b>Field operator</b><small>Farm manager</small></span></div><button type="button" class="icon-button top-avatar" id="account-menu-button" aria-label="Open dashboard actions" aria-haspopup="dialog" aria-expanded="false" aria-controls="action-dialog">A</button></div>
+        </div>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><b id="breadcrumb-current">Overview</b><span class="utc-clock" id="clock">—</span></div>
+      </header>
+      <div class="page-wrap">
+        <section class="page-heading" hidden aria-hidden="true"></section>
+
+        <section class="hero-showcase" aria-labelledby="hero-field-title" data-view="overview">
+          <div class="hero-copy">
+            <div class="hero-intro-row">
+              <div class="hero-field-heading"><span class="hero-live-dot"></span><span>LIVE FIELD</span><span class="hero-heading-separator">/</span><span id="hero-field-name">North Field</span></div>
+              <div class="hero-tools"><label class="device-select-wrap"><span class="select-label">SENSOR</span><select id="device-select" aria-label="Choose a sensor device"><option value="">All devices</option></select></label><button type="button" class="button button-primary" id="simulate-button" aria-pressed="false" title="Create sample sensor readings for practice; press again to stop"><span class="button-symbol">▶</span><span id="simulate-label">Try demo</span></button></div>
+            </div><h2 id="hero-field-title" class="visually-hidden">Farm intelligence at a glance.</h2><div class="hero-particle-text" id="hero-particle-text" aria-hidden="true" data-particle-text data-text="Farm intelligence" data-color="#0f3d33" data-highlight-color="#12894a" data-particle-size="2" data-density="3" data-scatter="150" data-trigger="hover" data-font-weight="800" data-font-size="clamp(1.7rem, 3.4vw, 3rem)"></div><p>Live conditions, shaped by your connected sensor.</p>
+            <div class="hero-moisture-wrap">
+              <button type="button" class="soil-orbit" data-metric="soil_moisture" aria-label="Open soil moisture details">
+                <svg viewBox="0 0 120 120" class="soil-ring" aria-hidden="true"><circle class="soil-ring-track" cx="60" cy="60" r="48"/><circle class="soil-ring-optimal" cx="60" cy="60" r="48"/><circle class="soil-ring-progress" id="soil-ring-progress" cx="60" cy="60" r="48"/></svg>
+                <span class="soil-ring-value"><strong id="soil-value">—</strong><span id="soil-unit">%</span></span>
+                <span class="soil-ring-caption">SOIL MOISTURE</span>
+              </button>
+              <div class="hero-moisture-copy"><span class="hero-metric-kicker">FIELD CONDITION</span><b id="hero-soil-state">Waiting for readings</b><span id="soil-condition">Sensor reading pending</span><span id="soil-trend" class="metric-change">Awaiting data</span><svg id="soil-spark" viewBox="0 0 120 36" aria-hidden="true"></svg></div>
+            </div>
+            <div class="hero-network" id="hero-network">
+              <span class="connection-pulse" id="connection-pulse"></span>
+              <span class="hero-network-copy"><b id="connection-label">Connecting to your field</b><small id="connection-detail">Establishing a secure local connection</small></span>
+              <span class="hero-network-divider"></span>
+              <button type="button" class="hero-device-trigger" id="device-status-trigger" aria-label="View connected sensor status"><small id="hero-device-label">ESP32 SENSOR</small><b id="active-device">—</b></button>
+              <span class="hero-live" id="live-badge"><i></i><b id="live-badge-label">CONNECTING</b></span>
+            </div>
+          </div>
+          <div class="hero-landscape" role="img" aria-label="Atmospheric illustration of crop rows with a live sensor position">
+            <div class="hero-sun-glow"></div><div class="field-horizon"></div><div class="field-mountains"></div>
+            <div class="field-rows field-rows-back"></div><div class="field-rows field-rows-mid"></div><div class="field-rows field-rows-front"></div>
+            <div class="field-zone zone-one"></div><div class="field-zone zone-two"></div>
+            <div class="hero-field-label"><span>FIELD VIEW</span><b id="hero-field-label">North Field</b></div>
+            <div class="hero-sensor-point"><span class="sensor-point-wave"></span><i></i><b>LIVE SENSOR</b></div>
+            <div class="hero-field-foot"><span>ESP32 FIELD NETWORK</span><span id="hero-last-reading">Waiting for sensor data</span></div>
+            <div class="hero-art-noise"></div>
+          </div>
+        </section>
+
+        <div class="hero-reading-meta" data-view="overview"><span>LAST SENSOR UPDATE</span><b id="last-reading">Waiting for sensor data</b><span class="hero-meta-line"></span><span class="hero-reading-device">Reading from <b id="hero-reading-device">your field sensor</b></span><span class="hero-reading-device-id" id="hero-reading-device-id"></span></div>
+
+        <section class="showcase-section" id="field-showcase" aria-labelledby="showcase-title" data-view="overview">
+          <div class="showcase-mount" data-scroll-expand data-src="field-showcase.svg" data-media-type="image" data-alt="Night-time illustration of crop rows receding toward a glowing horizon above a live sensor position" data-title="Rooted in data" data-scroll-hint="Scroll to open the field" data-start-width="46" data-start-height="60" data-start-radius="26" data-end-radius="0" data-media-zoom="1.32" data-scroll-distance="0.9" data-hold-distance="0.2" data-smoothing="0.1" data-overlay-scrim="0.5" data-use-window-scroll>
+            <div class="showcase-overlay">
+              <span class="showcase-kicker">AGRISENSE AI</span>
+              <h2 id="showcase-title">From soil to signal<span class="title-period">.</span></h2>
+              <p>Every reading your field sends flows into one clear picture — conditions, trends and guidance in a single view.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="crop-library" id="crop-library" aria-labelledby="crop-library-title" data-view="crop-library">
+          <div class="crop-library-heading">
+            <div><div class="eyebrow"><span class="eyebrow-dot"></span> CROP LIBRARY</div><h2 id="crop-library-title">Every crop you grow<span class="title-period">.</span></h2><p>Reference illustrations for the crops AgriSense screens and recommends, so the whole field library stays visible at a glance.</p></div>
+            <span class="crop-count-badge">✳ 8 CROPS</span>
+          </div>
+          <div class="crop-grid">
+            <article class="crop-card"><img src="crops/leaf.svg" width="200" height="200" loading="lazy" alt="Illustration of a leafy green crop"><b>Leafy greens</b><span>Spinach · Kale</span></article>
+            <article class="crop-card"><img src="crops/wheat.svg" width="200" height="200" loading="lazy" alt="Illustration of a wheat crop"><b>Wheat</b><span>Cereal · Grain</span></article>
+            <article class="crop-card"><img src="crops/rice.svg" width="200" height="200" loading="lazy" alt="Illustration of a rice crop"><b>Rice</b><span>Paddy · Cereal</span></article>
+            <article class="crop-card"><img src="crops/maize.svg" width="200" height="200" loading="lazy" alt="Illustration of a maize crop"><b>Maize</b><span>Corn · Cereal</span></article>
+            <article class="crop-card"><img src="crops/tomato.svg" width="200" height="200" loading="lazy" alt="Illustration of a tomato crop"><b>Tomato</b><span>Solanaceae</span></article>
+            <article class="crop-card"><img src="crops/citrus.svg" width="200" height="200" loading="lazy" alt="Illustration of a citrus crop"><b>Citrus</b><span>Orchard · Fruit</span></article>
+            <article class="crop-card"><img src="crops/grape.svg" width="200" height="200" loading="lazy" alt="Illustration of a grape crop"><b>Grape</b><span>Vineyard · Fruit</span></article>
+            <article class="crop-card"><img src="crops/cotton.svg" width="200" height="200" loading="lazy" alt="Illustration of a cotton crop"><b>Cotton</b><span>Fibre · Cash crop</span></article>
+          </div>
+        </section>
+
+        <section class="map-section panel glass-card" id="map-view" aria-labelledby="map-title" data-view="map-page">
+          <div class="map-heading">
+            <div><div class="eyebrow"><span class="eyebrow-dot"></span> FIELD LOCATION</div><h2 id="map-title">GPS field map<span class="title-period">.</span></h2><p>View your saved farm location on the map. GPS capture is opt-in and does not run in the background.</p></div>
+            <div class="map-status-badges"><span class="map-status-pill" id="map-connection-status"><i></i><b>Checking connection</b></span><span class="map-status-pill gps-status-pill" id="map-gps-status"><i></i><b>No GPS fix</b></span></div>
+          </div>
+          <div class="map-layout">
+            <div class="map-stage" id="map-stage">
+              <iframe id="site-map-frame" title="OpenStreetMap showing the saved farm GPS location" loading="lazy" referrerpolicy="no-referrer" hidden></iframe>
+              <div class="map-offline-canvas" id="map-offline-canvas" aria-live="polite">
+                <div class="offline-map-grid" id="offline-map-grid"></div><div class="offline-map-orbit orbit-one"></div><div class="offline-map-orbit orbit-two"></div>
+                <div class="offline-map-center"><span class="offline-map-pin" id="offline-map-pin">⌖</span><b id="offline-map-title">Waiting for GPS location</b><small id="offline-map-caption">Capture a fix to display your site coordinates here.</small></div>
+                <span class="map-compass" aria-hidden="true"><b>N</b><i>↑</i></span>
+                <span class="map-scale" id="map-scale">Offline coordinate view · not a tiled map</span>
+              </div>
+              <div class="map-loading" id="map-loading" hidden><span class="loading-spinner"></span> Loading OpenStreetMap…</div>
+              <div class="map-canvas-controls"><button type="button" id="map-zoom-in" aria-label="Zoom in">+</button><button type="button" id="map-zoom-out" aria-label="Zoom out">−</button><button type="button" id="map-center-site" aria-label="Center map on saved site">⌖</button></div>
+              <button type="button" class="map-load-button" id="map-load-online" hidden>Load online map tiles</button>
+              <a class="map-open-external" id="map-open-external" target="_blank" rel="noopener noreferrer" hidden>Open full map ↗</a>
+            </div>
+            <aside class="map-details">
+              <div class="map-location-card"><div class="map-location-label"><span>ACTIVE SITE</span><i id="map-sync-indicator"></i></div><b id="map-site-name">No site location saved</b><p id="map-site-status">Use the button below to request a one-time location fix.</p></div>
+              <div class="map-coordinate-list"><div><span>LATITUDE</span><b id="map-latitude">—</b></div><div><span>LONGITUDE</span><b id="map-longitude">—</b></div><div><span>GPS ACCURACY</span><b id="map-accuracy">—</b></div><div><span>LAST FIX</span><b id="map-captured-at">—</b></div></div>
+              <button type="button" id="map-capture-location" class="button button-primary map-gps-button">◎ Use my current location</button>
+              <button type="button" id="map-clear-location" class="subtle-button map-clear-button" hidden>Clear saved location</button>
+              <p class="map-offline-note"><span>ⓘ</span> Offline: saved coordinates remain on this device; map tiles aren’t cached. Loading online OpenStreetMap tiles sends the displayed coordinates to OpenStreetMap. GPS capture is opt-in.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="suitability-section panel glass-card" id="suitability" data-view="suitability">
+          <div class="suitability-heading">
+            <div><div class="eyebrow"><span class="eyebrow-dot"></span> SITE INTELLIGENCE</div><h2>Find the right crop for your land<span class="title-period">.</span></h2><p>Compare crops and growing methods using your land, water, and budget. See how each option matches your conditions.</p></div>
+            <div class="screening-badge"><span>✳</span> CLEAR, RULE-BASED GUIDE</div>
+          </div>
+          <div class="suitability-note"><span class="note-icon">i</span><span><b>What you’ll need:</b> basic site measurements, available water, land size, your budget, and local crop prices/costs. Enter measurements below or import a CSV/JSON summary. Demo values are for practice only. Results are a guide—not a guaranteed harvest or substitute for local farming advice.</span><button type="button" id="suitability-example" class="subtle-button">Try example</button></div>
+          <form id="suitability-form">
+            <div class="suitability-form-grid">
+              <div class="suitability-column">
+                <div class="form-section-title"><span class="form-step">01</span><div><b>Site profile</b><small>Location context &amp; land area</small></div></div>
+                <label class="form-field"><span>Site / facility name</span><input name="site_name" maxlength="100" value="North Field" required></label>
+                <label class="form-field"><span>Available land <i>hectares</i></span><input name="area_ha" type="number" min="0.01" max="100000" step="0.01" placeholder="e.g. 2.5" required></label>
+                <div class="location-card" aria-labelledby="location-title">
+                  <div class="location-card-heading"><div><b id="location-title">Farm / site location</b><small>Capture this device’s location; it does not affect suitability scores.</small></div><span class="location-signal" id="location-signal" aria-hidden="true"></span></div>
+                  <div class="location-coordinates"><span><small>LATITUDE</small><b id="site-latitude">Not set</b></span><span><small>LONGITUDE</small><b id="site-longitude">Not set</b></span><span><small>ACCURACY</small><b id="site-accuracy">—</b></span></div>
+                  <div class="location-actions"><button type="button" id="capture-location" class="subtle-button">◎ Use this device’s location</button><button type="button" id="clear-location" class="subtle-button location-clear" hidden>Clear</button></div>
+                  <div id="location-status" class="location-status" role="status" aria-live="polite">Location is off. Capture only when you choose; offline fixes are saved on this device and synced when the backend is reachable.</div>
+                <details class="location-privacy"><summary>Location privacy</summary><span>Location capture is opt-in and one-time; continuous tracking is not used. Coordinates remain in this browser for offline access, and are sent to this AgriSense backend when online. Clear removes the local fix and queues deletion of the synced record. Device permission must be granted; browser location usually requires HTTPS or localhost.</span></details>
+                </div>
+                <div class="form-section-title gis-title"><span class="form-step">02</span><div><b>Land &amp; weather</b><small>Use measurements from your farm or local advice</small></div></div>
+                <p class="form-help">Enter the required measurements you know. Ask a local farm adviser or cooperative if you need help finding soil and rainfall values.</p>
+                <label class="upload-zone" for="gis-file" role="button" tabindex="0" aria-label="Import site measurements from CSV or JSON"><span class="upload-glyph">↥</span><span><b>Have a measurements file? Import it</b><small>CSV or JSON · optional</small></span><input type="file" id="gis-file" accept=".csv,.json,application/json,text/csv" multiple tabindex="-1"></label>
+                <div class="layer-input-grid">
+                  <label class="form-field"><span>Solar exposure <i>kWh/m²/day</i></span><input name="solar_kwh_m2_day" type="number" min="0" max="15" step="0.1" placeholder="6.2" required></label>
+                  <label class="form-field"><span>Annual rainfall <i>mm</i></span><input name="annual_rainfall_mm" type="number" min="0" max="15000" step="1" placeholder="750" required></label>
+                  <label class="form-field"><span>Soil pH <i>0–14</i></span><input name="soil_ph" type="number" min="0" max="14" step="0.1" placeholder="6.4" required></label>
+                  <label class="form-field"><span>Soil salinity <i>dS/m</i></span><input name="soil_salinity_ds_m" type="number" min="0" max="100" step="0.1" placeholder="1.2" required></label>
+                  <label class="form-field"><span>Water availability <i>0 = none, 100 = plenty</i></span><input name="water_availability" type="number" min="0" max="100" step="1" placeholder="75" required></label>
+                  <label class="form-field"><span>Growing temp <i>°C</i></span><input name="mean_temp_c" type="number" min="-20" max="60" step="0.1" placeholder="24"></label>
+                  <label class="form-field"><span>Peak wind <i>km/h</i></span><input name="wind_kmh" type="number" min="0" max="400" step="0.1" placeholder="18"></label>
+                  <label class="form-field"><span>Wind / dust risk <i>/100</i></span><input name="dust_risk" type="number" min="0" max="100" step="1" placeholder="20"></label>
+                  <label class="form-field"><span>Terrain slope <i>%</i></span><input name="slope_pct" type="number" min="0" max="200" step="0.1" placeholder="2"></label>
+                  <label class="form-field"><span>Market distance <i>km</i></span><input name="market_distance_km" type="number" min="0" max="5000" step="1" placeholder="35"></label>
+                </div>
+                <div id="gis-file-status" class="file-status" aria-live="polite"></div>
+              </div>
+              <div class="suitability-column economics-column">
+                <div class="form-section-title"><span class="form-step">03</span><div><b>Your budget &amp; local prices</b><small>Use your own local prices and cost estimates</small></div></div>
+                <div class="economics-top-row">
+                  <label class="form-field"><span>Available budget</span><input name="budget" type="number" min="0" step="100" placeholder="e.g. 15000" required></label>
+                  <label class="form-field currency-field"><span>Currency</span><select name="currency"><option>USD</option><option>EUR</option><option>INR</option><option>KES</option><option>NGN</option><option>GHS</option><option>TZS</option><option>UGX</option><option>BRL</option><option>TRY</option></select></label>
+                </div>
+                <label class="form-field price-field"><span>Expected selling price <i>per tonne, in your currency</i></span><input name="price_per_ton" type="number" min="0.01" step="0.01" placeholder="e.g. 320" required><small class="field-hint">If you sell by bag or kilo, convert to one tonne (1,000 kg).</small></label>
+                <div class="cost-table-wrap"><div class="cost-table-title"><span>YOUR LOCAL COST ESTIMATES</span><span>PER HECTARE</span></div>
+                  <div class="cost-row cost-header"><span>Growing method</span><span>Setup cost</span><span>Yearly cost</span></div>
+                  <label class="cost-row"><span><i class="system-dot open-dot"></i>Open field</span><input name="open_field_capex" aria-label="Open field setup cost per hectare" type="number" min="0" step="10" placeholder="Setup" required><input name="open_field_opex" aria-label="Open field yearly cost per hectare" type="number" min="0" step="10" placeholder="Yearly" required></label>
+                  <label class="cost-row"><span><i class="system-dot greenhouse-dot"></i>Greenhouse</span><input name="greenhouse_capex" aria-label="Greenhouse setup cost per hectare" type="number" min="0" step="10" placeholder="Setup" required><input name="greenhouse_opex" aria-label="Greenhouse yearly cost per hectare" type="number" min="0" step="10" placeholder="Yearly" required></label>
+                  <label class="cost-row"><span><i class="system-dot hydro-dot"></i>Hydroponic</span><input name="hydroponic_capex" aria-label="Hydroponic setup cost per hectare" type="number" min="0" step="10" placeholder="Setup" required><input name="hydroponic_opex" aria-label="Hydroponic yearly cost per hectare" type="number" min="0" step="10" placeholder="Yearly" required></label>
+                </div>
+                <details class="cost-help"><summary>What do these costs mean?</summary><p><b>Setup cost</b> is the one-time cost to start this growing method. <b>Yearly cost</b> covers ongoing expenses such as seed, labor, water, energy, and supplies. Use the same currency for all amounts.</p></details>
+                <div class="economics-disclaimer">Use local quotes for structures, irrigation, seed, labor, energy, inputs, and transport. Crop reference yields are illustrative planning values.</div>
+                <button type="submit" id="run-suitability" class="button button-primary suitability-submit"><span>✳</span> Find suitable crops &amp; systems <b>→</b></button>
+                <div id="suitability-error" class="suitability-error" role="alert"></div>
+              </div>
+            </div>
+          </form>
+          <div id="suitability-results" class="suitability-results" aria-live="polite" hidden></div>
+        </section>
+
+        <section class="ai-page panel glass-card" id="ai-advisor" data-view="ai-advisor" aria-labelledby="ai-page-title">
+          <div class="suitability-heading">
+            <div><div class="eyebrow"><span class="eyebrow-dot"></span> AI ADVISOR</div><h2 id="ai-page-title">The planning brain<span class="title-period">.</span></h2><p>The agricultural AI core: live weather, soil and NASA POWER climate normals, a trained agricultural-state model, rule-based plant colour analysis, crop knowledge retrieval, and a deterministic irrigation controller that has the final say.</p></div>
+            <div class="screening-badge" id="ai-status-badge"><span>✳</span> CHECKING…</div>
+          </div>
+          <div id="ai-unavailable" class="ai-unavailable" role="status" hidden></div>
+          <form id="ai-form">
+            <div class="suitability-form-grid">
+              <div class="suitability-column">
+                <div class="form-section-title"><span class="form-step">01</span><div><b>Site</b><small>Where the plot is</small></div></div>
+                <div class="layer-input-grid">
+                  <label class="form-field"><span>Latitude <i>−90 to 90</i></span><input name="latitude" type="number" min="-90" max="90" step="0.0001" placeholder="24.8600" required></label>
+                  <label class="form-field"><span>Longitude <i>−180 to 180</i></span><input name="longitude" type="number" min="-180" max="180" step="0.0001" placeholder="46.7200" required></label>
+                  <label class="form-field"><span>Region filter <i>optional</i></span><input name="region" maxlength="40" placeholder="e.g. sahel, south_asia, desert"></label>
+                  <label class="form-field"><span>Budget <i>optional</i></span><input name="budget" type="number" min="0" step="100" placeholder="750"></label>
+                </div>
+                <div class="location-actions"><button type="button" id="ai-use-location" class="subtle-button">◎ Use this device’s location</button></div>
+                <div id="ai-location-status" class="location-status" role="status" aria-live="polite">Coordinates drive the live weather, soil and climate lookups. Nothing is sent anywhere except those public data services.</div>
+                <div class="ai-actions"><button type="submit" id="ai-run" class="button button-primary"><span>✳</span> Run AI analysis <b>→</b></button></div>
+                <p class="ai-muted" id="ai-proxy-state">Not trained yet. Training starts on the first run, or press “Train models now”.</p>
+              </div>
+              <div class="suitability-column">
+                <div class="form-section-title"><span class="form-step">02</span><div><b>Current readings</b><small>What your sensors report right now</small></div></div>
+                <div class="layer-input-grid">
+                  <label class="form-field"><span>Soil moisture <i>%</i></span><input name="soil_moisture_pct" type="number" min="0" max="100" step="0.1" placeholder="38" required></label>
+                  <label class="form-field"><span>Air temperature <i>°C</i></span><input name="air_temp_c" type="number" min="-10" max="60" step="0.1" placeholder="33.2" required></label>
+                  <label class="form-field"><span>Air humidity <i>%</i></span><input name="air_humidity_pct" type="number" min="0" max="100" step="0.1" placeholder="45" required></label>
+                  <label class="form-field"><span>LDR reading <i>%, lower = brighter</i></span><input name="ldr_pct" type="number" min="0" max="100" step="0.1" placeholder="25" required></label>
+                  <label class="form-field"><span>Irrigation threshold <i>% soil moisture</i></span><input name="crop_moisture_threshold_pct" type="number" min="0" max="100" step="1" placeholder="40"></label>
+                  <label class="form-field"><span>Camera index <i>optional</i></span><input name="camera_index" type="number" min="0" max="10" step="1" placeholder="0"></label>
+                  <label class="form-field"><span>Mode</span><select name="mode"><option value="plan">Plan — new or empty plot</option><option value="health">Health — crop already growing</option><option value="both">Both prompts</option></select></label>
+                </div>
+                <div class="ai-actions"><button type="button" id="ai-warm" class="subtle-button">Train models now</button><button type="button" id="ai-refresh-status" class="subtle-button">Check availability</button></div>
+                <div id="ai-error" class="suitability-error" role="alert" hidden></div>
+              </div>
+            </div>
+          </form>
+          <div id="ai-progress" class="ai-progress" role="status" aria-live="polite" hidden><span class="ai-spinner" aria-hidden="true"></span><span id="ai-progress-text">Starting…</span></div>
+          <div id="ai-results" class="ai-results" aria-live="polite" hidden></div>
+          <details class="cost-help ai-disclosure"><summary>How this AI is trained, and what it cannot do</summary><p id="ai-disclosure">Loading disclosure…</p><p>Coverage gaps are reported rather than guessed at: NPK, NDVI and salinity are marked unavailable because no free, unauthenticated source for them is integrated. No pump or reservoir hardware is wired up — the irrigation output is a recommendation and a log entry only. Nothing here replaces local agronomic advice.</p></details>
+        </section>
+
+        <section class="metric-grid" aria-label="Other field conditions" data-view="overview">
+          <article class="metric-card glass-card temperature-card">
+            <div class="metric-top"><div class="metric-title"><span class="metric-icon temp-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.76V5a3 3 0 0 0-6 0v9.76a5 5 0 1 0 6 0ZM11 11v7"/></svg></span><span>Air temperature</span></div><button type="button" class="dots-button" data-metric="temperature" aria-label="Air temperature details">···</button></div>
+            <div class="metric-value-row"><strong class="metric-value" id="temp-value">—</strong><span class="metric-unit">°C</span><span class="metric-change" id="temp-trend">Awaiting data</span></div>
+            <div class="metric-foot"><span id="temp-condition">Environmental sensor</span><div class="metric-rule"><span class="rule-line"></span><span class="rule-marker" id="temp-marker"></span></div><div class="metric-scale"><span>10°</span><span>Comfort zone</span><span>35°</span></div></div>
+            <svg class="metric-spark spark-gold" id="temp-spark" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true"></svg>
+          </article>
+          <article class="metric-card glass-card humidity-card">
+            <div class="metric-top"><div class="metric-title"><span class="metric-icon humidity-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s7 7.2 7 12a7 7 0 1 1-14 0c0-4.8 7-12 7-12Z"/><path d="M9 16a3 3 0 0 0 3 3"/></svg></span><span>Air humidity</span></div><button type="button" class="dots-button" data-metric="humidity" aria-label="Air humidity details">···</button></div>
+            <div class="metric-value-row"><strong class="metric-value" id="humidity-value">—</strong><span class="metric-unit">%</span><span class="metric-change" id="humidity-trend">Awaiting data</span></div>
+            <div class="metric-foot"><span id="humidity-condition">Relative humidity</span><div class="progress-track humidity-progress"><i id="humidity-progress"></i></div><div class="metric-scale"><span>Low</span><span>Balanced</span><span>High</span></div></div>
+            <svg class="metric-spark spark-blue" id="humidity-spark" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true"></svg>
+          </article>
+          <article class="metric-card glass-card water-card">
+            <div class="metric-top"><div class="metric-title"><span class="metric-icon water-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s7 7.2 7 12a7 7 0 1 1-14 0c0-4.8 7-12 7-12Z"/><path d="M8 16c.3 1.6 1.5 2.6 3 3"/></svg></span><span>Water reserve</span></div><button type="button" class="dots-button" data-metric="water_level" aria-label="Water reserve details">···</button></div>
+            <div class="metric-value-row"><strong class="metric-value" id="water-value">—</strong><span class="metric-unit">%</span><span class="metric-change" id="water-trend">Awaiting data</span></div>
+            <div class="metric-foot"><span id="water-condition">No water sensor data</span><div class="progress-track water-progress"><i id="water-progress"></i></div><div class="metric-scale"><span>Low</span><span>Available</span><span>Full</span></div></div>
+            <svg class="metric-spark spark-blue" id="water-spark" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true"></svg>
+          </article>
+        </section>
+
+        <section class="content-grid" id="monitoring" data-view-group>
+          <article class="panel glass-card chart-panel" data-view="overview monitoring">
+            <div class="panel-heading"><div><div class="eyebrow">FIELD RHYTHM</div><h2>Conditions over time</h2><p>Soil moisture and temperature, as they happen.</p></div><div class="range-tabs" role="group" aria-label="Chart time range"><button type="button" aria-pressed="false" data-range="1h">1H</button><button type="button" aria-pressed="false" data-range="6h">6H</button><button type="button" class="selected" aria-pressed="true" data-range="24h">24H</button><button type="button" aria-pressed="false" data-range="7d">7D</button><button type="button" aria-pressed="false" data-range="30d">30D</button></div></div>
+            <div class="chart-legend"><span><i class="legend-dot moisture-dot"></i>Soil moisture</span><span><i class="legend-dot temp-dot"></i>Temperature</span><span class="chart-note" id="chart-count">No readings yet</span></div>
+            <div class="chart-wrap" id="chart-wrap"><svg id="trend-chart" viewBox="0 0 800 250" preserveAspectRatio="none" role="img" aria-label="Soil moisture and temperature trends over time"><defs><linearGradient id="soil-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7e86b" stop-opacity=".23"/><stop offset="1" stop-color="#a7e86b" stop-opacity="0"/></linearGradient></defs><g class="chart-grid"><line x1="48" y1="34" x2="790" y2="34"/><line x1="48" y1="84" x2="790" y2="84"/><line x1="48" y1="134" x2="790" y2="134"/><line x1="48" y1="184" x2="790" y2="184"/><line x1="48" y1="234" x2="790" y2="234"/></g><g class="chart-y-labels"><text x="5" y="38">100%</text><text x="14" y="88">75</text><text x="14" y="138">50</text><text x="14" y="188">25</text><text x="24" y="238">0</text></g><g id="chart-series"></g><g id="chart-x-labels" class="chart-x-labels"></g></svg><div class="chart-empty" id="chart-empty"><div class="empty-wave">⌁</div><b>Waiting for your first reading</b><span>Connect a sensor or try demo readings.</span></div><div class="chart-tooltip" id="chart-tooltip" role="status" hidden></div></div>
+            <div class="chart-footer"><span><i class="footer-dot"></i> Live sensor stream</span><span id="chart-range-label">Last 24 hours</span></div>
+          </article>
+          <aside class="insight-stack" data-view="overview insights">
+            <article class="network-card" id="network-card">
+              <div class="network-card-heading"><span class="eyebrow">FIELD NETWORK</span><button type="button" id="device-status-button" class="network-open-button" aria-label="Open connected sensor details">↗</button></div>
+              <div class="network-summary"><span class="network-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><div><b id="coverage-summary">Listening for field devices</b><small id="network-latest-label">No field sensor connected</small></div></div>
+              <div class="coverage-stats"><div><span>DEVICES</span><b id="coverage-devices">—</b></div><div><span>ONLINE</span><b class="online-stat" id="coverage-online">—</b></div><div><span>READINGS</span><b id="coverage-readings">—</b></div></div>
+            </article>
+            <article class="panel glass-card ai-card" id="insights">
+              <div class="panel-heading compact"><div><div class="eyebrow"><span class="ai-star">✳</span> AGRISENSE AI</div><h2>Field intelligence</h2></div><span class="rule-pill">LIVE RULES</span></div>
+              <div class="ai-insight-body"><div class="ai-badge"><span>✳</span></div><div><span class="insight-label" id="insight-label">FIELD INSIGHT</span><p id="insight-message">Insights will appear when sensor readings are available.</p><span id="insight-status" class="insight-status">WAITING FOR FIELD DATA</span></div></div>
+              <div class="ai-foot"><span><i class="ai-status-dot"></i>Transparent agricultural rules</span><a href="#alerts">View alerts <b>↗</b></a></div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="bottom-grid" data-view-group>
+          <article class="panel glass-card devices-panel" id="devices" data-view="devices"><div class="panel-heading compact"><div><div class="eyebrow">CONNECTED HARDWARE</div><h2>Field devices</h2></div><button type="button" class="text-link" id="refresh-devices">Refresh <span>↻</span></button></div><div class="device-table-wrap"><table><thead><tr><th>DEVICE</th><th>STATUS</th><th>LAST SEEN</th><th>SOIL</th></tr></thead><tbody id="device-rows"><tr><td colspan="4" class="table-empty">No sensor devices detected yet.</td></tr></tbody></table></div></article>
+          <article class="panel glass-card alerts-panel" id="alerts" data-view="alerts"><div class="panel-heading compact"><div><div class="eyebrow">ATTENTION</div><h2>Field alerts</h2></div><span class="alert-total" id="alerts-total">0 ACTIVE</span></div><div id="alert-list" class="alert-list"><div class="alert-empty"><span>✓</span><div><b>All clear for now</b><small>New field alerts will appear here.</small></div></div></div></article>
+        </section>
+        <footer class="page-footer"><span>AGRISENSE AI <i>·</i> FIELD INTELLIGENCE</span><span>Connected to your local sensor network <i class="footer-online"></i></span></footer>
+      </div>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="Quick navigation">
+    <a class="mobile-nav-link active" href="#overview"><span aria-hidden="true">◫</span><small>Home</small></a>
+    <a class="mobile-nav-link" href="?view=map#map-view" target="_blank" rel="noopener" aria-label="Open GPS map in a new tab"><span aria-hidden="true">⌖</span><small>Map</small></a>
+    <a class="mobile-nav-link" href="#suitability"><span aria-hidden="true">✳</span><small>Crop fit</small></a>
+    <a class="mobile-nav-link" href="#ai-advisor"><span aria-hidden="true">✦</span><small>AI</small></a>
+    <a class="mobile-nav-link" href="#monitoring"><span aria-hidden="true">⌁</span><small>Readings</small></a>
+    <a class="mobile-nav-link" href="#devices"><span aria-hidden="true">▦</span><small>Devices</small></a>
+    <a class="mobile-nav-link" href="#alerts"><span aria-hidden="true">♧</span><small>Alerts</small></a>
+  </nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="dialog-backdrop" id="action-dialog" hidden>
+    <section class="action-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabindex="-1">
+      <button type="button" id="dialog-close" class="icon-button dialog-close" aria-label="Close dialog">×</button>
+      <div class="eyebrow"><span class="eyebrow-dot"></span><span id="dialog-eyebrow">FIELD DETAILS</span></div>
+      <h2 id="dialog-title">Details</h2>
+      <div id="dialog-content" class="dialog-content"></div>
+    </section>
+  </div>
+  <script src="ParticleText.js" defer></script>
+  <script src="ScrollExpand.js" defer></script>
+  <script src="views.js" defer></script>
+  <script src="suitability.js" defer></script>
+  <script src="ai-advisor.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

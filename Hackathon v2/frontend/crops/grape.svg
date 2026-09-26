@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Grape crop illustration">
+  <defs>
+    <linearGradient id="gp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f0fb"/><stop offset="1" stop-color="#e0d8f0"/>
+    </linearGradient>
+    <linearGradient id="gp-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9d7ede"/><stop offset="1" stop-color="#5b3aa8"/>
+    </linearGradient>
+    <linearGradient id="gp-leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6fce85"/><stop offset="1" stop-color="#228e51"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#gp-bg)"/>
+  <path d="M110 42c22 6 34 22 30 44" stroke="#4f9646" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M118 58c16-14 36-16 52-8-8 18-28 26-52 8Z" fill="url(#gp-leaf)"/>
+  <g fill="url(#gp-body)">
+    <circle cx="100" cy="86" r="14"/>
+    <circle cx="128" cy="92" r="14"/>
+    <circle cx="74" cy="98" r="14"/>
+    <circle cx="102" cy="110" r="14"/>
+    <circle cx="126" cy="122" r="14"/>
+    <circle cx="78" cy="126" r="14"/>
+    <circle cx="102" cy="140" r="14"/>
+    <circle cx="104" cy="166" r="13"/>
+  </g>
+  <g fill="#ffffff" opacity=".25">
+    <circle cx="95" cy="81" r="4"/><circle cx="123" cy="87" r="4"/><circle cx="69" cy="93" r="4"/>
+  </g>
+</svg>

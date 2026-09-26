@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Cotton crop illustration">
+  <defs>
+    <linearGradient id="co-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1f7f6"/><stop offset="1" stop-color="#d7e7e6"/>
+    </linearGradient>
+    <linearGradient id="co-boll" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dbe7e6"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#co-bg)"/>
+  <g stroke="#8aa64f" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M100 178V84"/>
+    <path d="M100 132 74 108M100 132l26-24M100 108 80 78M100 108l20-30"/>
+  </g>
+  <g fill="url(#co-boll)" stroke="#b9cfce" stroke-width="2">
+    <circle cx="72" cy="74" r="20"/>
+    <circle cx="104" cy="60" r="22"/>
+    <circle cx="132" cy="80" r="19"/>
+    <circle cx="86" cy="106" r="17"/>
+    <circle cx="120" cy="110" r="16"/>
+  </g>
+  <g fill="#b9cfce" opacity=".55">
+    <path d="M100 60 92 52M104 60l8-8M72 74l-8-6M132 80l9-5"/>
+  </g>
+</svg>

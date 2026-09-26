@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Tomato crop illustration">
+  <defs>
+    <linearGradient id="tm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fef0ec"/><stop offset="1" stop-color="#f6d9d0"/>
+    </linearGradient>
+    <linearGradient id="tm-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a63"/><stop offset="1" stop-color="#d5382a"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#tm-bg)"/>
+  <ellipse cx="100" cy="118" rx="56" ry="52" fill="url(#tm-body)"/>
+  <ellipse cx="78" cy="98" rx="16" ry="11" fill="#ffffff" opacity=".28" transform="rotate(-24 78 98)"/>
+  <g fill="#3f9c52">
+    <path d="M100 70 84 52l18 6 16-6-16 18Z"/>
+    <path d="M100 68c-14-6-30-2-38 8 14 8 30 4 38-8Z"/>
+    <path d="M100 68c14-6 30-2 38 8-14 8-30 4-38-8Z"/>
+  </g>
+  <path d="M100 62V40" stroke="#3f9c52" stroke-width="6" stroke-linecap="round"/>
+</svg>

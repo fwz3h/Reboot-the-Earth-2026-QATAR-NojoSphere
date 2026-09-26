@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Rice crop illustration">
+  <defs>
+    <linearGradient id="rc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef9f3"/><stop offset="1" stop-color="#cfe9d8"/>
+    </linearGradient>
+    <linearGradient id="rc-grain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8df9a"/><stop offset="1" stop-color="#bfae4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#rc-bg)"/>
+  <g stroke="#6ea75f" stroke-width="4.5" stroke-linecap="round" fill="none">
+    <path d="M100 174V70"/>
+    <path d="M100 128c-20-4-30-20-30-42"/>
+    <path d="M100 128c20-4 30-20 30-42"/>
+  </g>
+  <g fill="url(#rc-grain)">
+    <ellipse cx="86" cy="80" rx="9" ry="15" transform="rotate(-24 86 80)"/>
+    <ellipse cx="114" cy="80" rx="9" ry="15" transform="rotate(24 114 80)"/>
+    <ellipse cx="78" cy="104" rx="9" ry="15" transform="rotate(-38 78 104)"/>
+    <ellipse cx="122" cy="104" rx="9" ry="15" transform="rotate(38 122 104)"/>
+    <ellipse cx="72" cy="128" rx="8" ry="13" transform="rotate(-52 72 128)"/>
+    <ellipse cx="128" cy="128" rx="8" ry="13" transform="rotate(52 128 128)"/>
+    <ellipse cx="100" cy="58" rx="9" ry="16"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Citrus crop illustration">
+  <defs>
+    <linearGradient id="ct-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf5e2"/><stop offset="1" stop-color="#f3e2b6"/>
+    </linearGradient>
+    <linearGradient id="ct-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffc24d"/><stop offset="1" stop-color="#ef8b1c"/>
+    </linearGradient>
+    <linearGradient id="ct-leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6fce85"/><stop offset="1" stop-color="#238f52"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#ct-bg)"/>
+  <circle cx="100" cy="116" r="54" fill="url(#ct-body)"/>
+  <circle cx="100" cy="116" r="54" fill="none" stroke="#d97d12" stroke-width="2" opacity=".35"/>
+  <ellipse cx="78" cy="96" rx="15" ry="10" fill="#ffffff" opacity=".3" transform="rotate(-24 78 96)"/>
+  <path d="M100 62V38" stroke="#3f9c52" stroke-width="6" stroke-linecap="round"/>
+  <path d="M102 56c14-16 34-20 52-14-6 20-24 30-52 14Z" fill="url(#ct-leaf)"/>
+</svg>

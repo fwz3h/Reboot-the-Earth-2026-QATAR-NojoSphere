@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Maize crop illustration">
+  <defs>
+    <linearGradient id="mz-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf7e4"/><stop offset="1" stop-color="#efe2bb"/>
+    </linearGradient>
+    <linearGradient id="mz-cob" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd95e"/><stop offset="1" stop-color="#e0a81f"/>
+    </linearGradient>
+    <linearGradient id="mz-husk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6fce85"/><stop offset="1" stop-color="#228e51"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="30" fill="url(#mz-bg)"/>
+  <path d="M100 186V96" stroke="#4f9646" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="100" cy="104" rx="30" ry="52" fill="url(#mz-cob)"/>
+  <g stroke="#c78f14" stroke-width="2" opacity=".55">
+    <path d="M78 74h44M76 92h48M76 110h48M78 128h44M84 146h32"/>
+  </g>
+  <path d="M100 62c8-18 24-26 42-24-4 22-18 34-42 24Z" fill="url(#mz-husk)"/>
+  <path d="M72 108c-20 4-32 18-34 38 20 2 34-8 40-26Z" fill="url(#mz-husk)"/>
+  <path d="M128 112c20 6 30 22 30 42-20 0-33-12-38-30Z" fill="url(#mz-husk)"/>
+</svg>
